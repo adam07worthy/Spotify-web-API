@@ -22,11 +22,13 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
 # Get the songs and artists from a given playlist
 playlist_id = input("Enter playlist ID: ")
 results = sp.playlist_items(playlist_id)
+all_songs = results["items"]
  
 # Allows for playlists larger than 100 songs
 while results['next']:
     results = sp.next(results)
-    results['items'].extend(results['items'])
+    all_songs.extend(results['items'])
 
-for item in results["items"]:
+# Prints results
+for item in all_songs:
     print(item["track"]["artists"][0]["name"] + ": " + item["track"]["name"])
