@@ -1,14 +1,13 @@
-# Spotify-web-API
-
+# Spotify Web API
 
 ## Description
-A Spotify web API that takes a Spotify playlist and prints every song (and the artist who made it)
-
+A Python script that uses the Spotify Web API to retrieve every song and the artist from a given Spotify playlist.
 
 ## Setup
-1. Create / log into you [Spotify Developer account](https://developer.spotify.com/dashboard)
-2. Create a ".env" file in the root of the project directory
-3. Add the following variables to the ".env" file with your Spotify Developer credentials:
+
+1. Create or log into your [Spotify Developer account](https://developer.spotify.com/dashboard).
+2. Create a `.env` file in the root of the project directory.
+3. Add the following variables to the `.env` file using your Spotify Developer credentials:
 
    ```env
    SPOTIFY_CLIENT_ID=your_client_id
