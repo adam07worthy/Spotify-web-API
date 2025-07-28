@@ -2,6 +2,8 @@ import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from dotenv import load_dotenv
+import tkinter
+from tkinter import scrolledtext
 
 # Load the hidden variables from .env
 load_dotenv()
@@ -20,8 +22,8 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
 ))
 
 # Get the songs and artists from a given playlist
-playlist_id = input("Enter playlist ID: ")
-results = sp.playlist_items(playlist_id)
+playlist_url = input("Enter playlist URL: ")
+results = sp.playlist_items(playlist_url)
 all_songs = results["items"]
  
 # Allows for playlists larger than 100 songs
@@ -29,6 +31,17 @@ while results['next']:
     results = sp.next(results)
     all_songs.extend(results['items'])
 
-# Prints results
+# Create a window
+window = tkinter.Tk()
+window.title("Song List")
+window.geometry("500x500")
+
+# Add scrollable text
+display_area = scrolledtext.ScrolledText(window, wrap=tkinter.WORD, width=70, height=25)
+display_area.pack(padx=10, pady=10, fill=tkinter.BOTH, expand=True)
+
+# Add songs and artists to window
 for item in all_songs:
-    print(item["track"]["artists"][0]["name"] + ": " + item["track"]["name"])
+    display_area.insert(tkinter.END, (item["track"]["artists"][0]["name"] + ": " + item["track"]["name"]) + "\n")
+
+window.mainloop()
