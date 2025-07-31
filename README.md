@@ -1,7 +1,7 @@
 # Spotify Web API
 
 ## Description
-A Python script that uses the Spotify Web API to retrieve every song and the artist from a given Spotify playlist.
+A Python script that uses the Spotify Web API to display every song and the artist from a given Spotify playlist.
 
 ## Setup
 
@@ -20,7 +20,7 @@ A Python script that uses the Spotify Web API to retrieve every song and the art
 
 
 ## Example Output
-When the program is run it will print song and the artist who made it, for example:
+When the program is run it will ask for the playlist URL, and then display the song and the artist who made it, for example:
 
     Stevie Wonder: I Wish  
     The Cure: A Forest  
